@@ -65,7 +65,7 @@ function generateMessageElement(message) {
         return `<span class="${className}">${text}</span>`;
     }
 
-    const time = spanify(message.time, "message_time");
+    const time = spanify(`(${message.time})`, "message_time");
     const from = spanify(message.from, "message_name");
     const action = {
         status: "",
