@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bate-papo UOL</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="topBar">
+        <img src="logo.jpg" alt="Bate-papo UOL" class="topBar_logo">
+        <button class="topBar_settings" onclick="toggleSettingsPanel()">
+            <ion-icon name="people" class="topBar_icon"></ion-icon>
+        </button>
+    </header>
+
+    <div class="settings">
+        <div class="settings_backdrop" onclick="toggleSettingsPanel()"></div>
+        <aside class="settings_panel">
+            <div class="settings_title">Escolha um contato para enviar mensagem:</div>
+
+            <ul class="settings_list">
+                <li class="settings_participant -selected" id="Todos" onclick="selectSetting('participant', this)">
+                    <ion-icon name="people" class="settings_icon"></ion-icon>
+                    Todos
+                </li>
+            </ul>
+
+            <div class="settings_title">Escolha a visiblidade:</div>
+
+            <ul class="settings_list">
+                <li class="settings_privacy -selected" id="message" onclick="selectSetting('privacy', this)">
+                    <ion-icon name="lock-open" class="settings_icon"></ion-icon>
+                    Público
+                </li>
+                <li class="settings_privacy" id="private_message" onclick="selectSetting('privacy', this)">
+                    <ion-icon name="lock-closed" class="settings_icon"></ion-icon>
+                    Reservadamente
+                </li>
+            </ul>
+            
+        </aside>
+    </div>
+
+    <main class="chat">
+        <div class="message -status">Conectando...</div>
+    </main>
+
+    <div class="bottomBar">
+        <div class="bottomBar_message">
+            <input type="text" class="bottomBar_content" placeholder="Escreva aqui...">
+            <div class="bottomBar_recipient">Enviando para Todos (público)</div>
+        </div>
+        <button class="bottomBar_send" onclick="sendMessage()">
+            <ion-icon name="paper-plane-outline"></ion-icon>
+        </button>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
